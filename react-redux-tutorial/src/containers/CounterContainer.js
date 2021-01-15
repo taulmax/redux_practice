@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Counter from "../components/Counter";
 import { minus, plus } from "../modules/counter";
+import Counter from "../components/Counter";
 
 const CounterContainer = ({ number, plus, minus }) => {
   return <Counter number={number} plus={plus} minus={minus} />;

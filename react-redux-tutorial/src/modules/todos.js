@@ -8,7 +8,7 @@ export const changeInput = (input) => ({
   input,
 });
 
-let id = 3;
+let id = 1;
 export const insert = (text) => ({
   type: INSERT,
   todos: {
@@ -30,18 +30,7 @@ export const remove = (id) => ({
 
 const initialState = {
   input: "",
-  todos: [
-    {
-      id: 1,
-      text: "Learn React Redux!",
-      done: true,
-    },
-    {
-      id: 2,
-      text: "Redux is so DIFFICULT...",
-      done: false,
-    },
-  ],
+  todos: [],
 };
 
 function todos(state = initialState, action) {
