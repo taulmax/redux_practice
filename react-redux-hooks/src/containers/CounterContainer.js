@@ -1,23 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
-import { minus, plus } from "../modules/counter";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Counter from "../components/Counter";
+import { plus, minus } from "../modules/counter";
 
-const CounterContainer = ({ number, plus, minus }) => {
-  return <Counter number={number} plus={plus} minus={minus} />;
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  const dispatch = useDispatch();
+  const onPlus = useCallback(() => dispatch(plus()), [dispatch]);
+  const onMinus = useCallback(() => dispatch(minus()), [dispatch]);
+  return <Counter number={number} plus={onPlus} minus={onMinus} />;
 };
 
-const mapStateToProps = (state) => ({
-  number: state.counter.number,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  plus: () => {
-    dispatch(plus());
-  },
-  minus: () => {
-    dispatch(minus());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default React.memo(CounterContainer);
