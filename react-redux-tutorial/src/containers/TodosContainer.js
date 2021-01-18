@@ -14,17 +14,17 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeInput: () => {
-    dispatch(changeInput());
+  changeInput: (input) => {
+    dispatch(changeInput(input));
   },
-  insert: () => {
-    dispatch(insert());
+  insert: (text) => {
+    dispatch(insert(text));
   },
-  toggle: () => {
-    dispatch(toggle());
+  toggle: (id) => {
+    dispatch(toggle(id));
   },
-  remove: () => {
-    dispatch(remove());
+  remove: (id) => {
+    dispatch(remove(id));
   },
 });
 
