@@ -1,27 +1,22 @@
+import { createAction, handleActions } from "redux-actions";
+
 const PLUS = "counter/PLUS";
 const MINUS = "counter/MINUS";
 
-export const plus = () => ({
-  type: PLUS,
-});
+export const plus = createAction(PLUS);
 
-export const minus = () => ({
-  type: MINUS,
-});
+export const minus = createAction(MINUS);
 
 const initialState = {
   number: 0,
 };
 
-function counter(state = initialState, action) {
-  switch (action.type) {
-    case PLUS:
-      return { number: state.number + 1 };
-    case MINUS:
-      return { number: state.number - 1 };
-    default:
-      return state;
-  }
-}
+const counter = handleActions(
+  {
+    [PLUS]: (state, action) => ({ number: state.number + 1 }),
+    [MINUS]: (state, action) => ({ number: state.number - 1 }),
+  },
+  initialState
+);
 
 export default counter;
