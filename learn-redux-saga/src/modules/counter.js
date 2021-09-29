@@ -8,8 +8,8 @@ const DECREASE_ASYNC = "counter/DECREASE_ASYNC";
 
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
-export const increaseAsync = createAction(INCREASE_ASYNC, () => undefined);
-export const decreaseAsync = createAction(DECREASE_ASYNC, () => undefined);
+export const increaseAsync = createAction(INCREASE_ASYNC);
+export const decreaseAsync = createAction(DECREASE_ASYNC);
 
 function* increaseSaga() {
   yield delay(1000);
